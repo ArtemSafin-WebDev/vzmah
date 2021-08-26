@@ -1,0 +1,47 @@
+.page-header {
+    position: relative;
+    z-index: 100;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+}
+
+.page-header__row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    
+}
+
+.page-header__logo {
+    margin-right: 4rem;
+}
+
+.page-header__logo-image {
+    display: block;
+    height: auto;
+    width: 17rem;
+}
+
+.page-header__nav {
+    display: flex;
+    align-items: center;
+    
+}
+
+.page-header__nav-link {
+    padding: 1rem 1.4rem;
+    font-size: 1.3rem;
+    line-height: 1.2;
+    border-right: 1px solid var(--text-color);
+    text-transform: uppercase;
+
+    &:last-child {
+        padding-right: 0;
+        border-right: none;
+    }
+
+    .no-touch &:hover,
+    .touch &:active {
+        color: var(--primary-color);
+    }
+}
