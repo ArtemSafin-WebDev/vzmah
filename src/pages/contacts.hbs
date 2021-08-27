@@ -1,0 +1,83 @@
+{{#extend "layout"}}
+{{#content "main"}}
+
+
+<section class="contacts">
+    <div class="container">
+        <h1 class="contacts__heading">
+            Say hey
+        </h1>
+        <div class="contacts__heading-text">
+            Появились вопросы? Это хорошо, задавайте:
+        </div>
+        <div class="contacts__row">
+            <div class="contacts__col">
+                <form action="/" method="POST">
+                    <div class="contacts__input-wrapper">
+                        <input type="text" name="name" placeholder="Имя" required>
+                    </div>
+                    <div class="contacts__input-wrapper">
+                        <input type="email" name="email" placeholder="E-mail" required>
+                    </div>
+                    <div class="contacts__input-wrapper">
+                        <input type="text" name="subject" placeholder="Тема" required>
+                    </div>
+                    <div class="contacts__input-wrapper">
+                        <textarea name="comment" placeholder="Напишите нам"></textarea>
+                    </div>
+                    <button type="submit">
+                        Отправить
+                    </button>
+                </form>
+            </div>
+            <div class="contacts__col">
+                <div class="contacts__info">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th>
+                                    Пишите:
+                                </th>
+                                <td>
+                                    <a href="mailto: am@vzmah.pro"> am@vzmah.pro</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Звоните:
+                                </th>
+                                <td>
+                                    <a href="tel:8 800 123-45-67">8 800 123-45-67</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Смотрите:
+                                </th>
+                                <td>
+                                    <a href="#">
+                                        Vimeo
+                                    </a>
+                                    <a href="#">
+                                        Instagram
+                                    </a>
+                                    <a href="#">
+                                        Facebook
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+
+{{/content}}
+{{/extend}}

@@ -1,0 +1,32 @@
+.default-content {
+    font-size: 1.3rem;
+    line-height: 1.2;
+
+    & > * {
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    img, video, iframe {
+        display: block;
+        height: auto;
+        width: 100%;
+        margin: 2rem 0;
+    }
+
+    iframe {
+        aspect-ratio: 16 / 9;
+    }
+
+    p {
+        margin: 1.5rem 0;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

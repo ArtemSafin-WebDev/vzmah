@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.min.css" />
     <title>
-        Главная страница
+        
     </title>
 </head>
 
@@ -48,20 +48,81 @@
         </header>        <main class="page-main" data-barba="container">
 
 
-<section class="home">
+<section class="contacts">
     <div class="container">
-        <div class="default-content">
-            <iframe
-                src="https://player.vimeo.com/video/413479724?title=0&amp;muted=1&amp;autoplay=1&amp;loop=1&amp;app_id=122963&amp;h=26392103a9"
-                width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
-                allowfullscreen="" title="SHOWREEL" data-ready="true" loading="lazy"></iframe>
+        <h1 class="contacts__heading">
+            Say hey
+        </h1>
+        <div class="contacts__heading-text">
+            Появились вопросы? Это хорошо, задавайте:
         </div>
+        <div class="contacts__row">
+            <div class="contacts__col">
+                <form action="/" method="POST">
+                    <div class="contacts__input-wrapper">
+                        <input type="text" name="name" placeholder="Имя" required>
+                    </div>
+                    <div class="contacts__input-wrapper">
+                        <input type="email" name="email" placeholder="E-mail" required>
+                    </div>
+                    <div class="contacts__input-wrapper">
+                        <input type="text" name="subject" placeholder="Тема" required>
+                    </div>
+                    <div class="contacts__input-wrapper">
+                        <textarea name="comment" placeholder="Напишите нам"></textarea>
+                    </div>
+                    <button type="submit">
+                        Отправить
+                    </button>
+                </form>
+            </div>
+            <div class="contacts__col">
+                <div class="contacts__info">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th>
+                                    Пишите:
+                                </th>
+                                <td>
+                                    <a href="mailto: am@vzmah.pro"> am@vzmah.pro</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Звоните:
+                                </th>
+                                <td>
+                                    <a href="tel:8 800 123-45-67">8 800 123-45-67</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Смотрите:
+                                </th>
+                                <td>
+                                    <a href="#">
+                                        Vimeo
+                                    </a>
+                                    <a href="#">
+                                        Instagram
+                                    </a>
+                                    <a href="#">
+                                        Facebook
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
     </div>
 </section>
 
 
-
-<script src="assets/js/index.js"></script>
 
 
         </main>

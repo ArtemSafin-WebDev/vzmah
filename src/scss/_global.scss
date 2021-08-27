@@ -30,6 +30,7 @@ body {
     flex-direction: column;
     font-family: var(--montserrat);
     color: var(--text-color);
+    overflow-y: scroll;
 }
 
 main {
@@ -183,6 +184,10 @@ th {
         height: auto;
         overflow: hidden;
     }
+}
+
+.fancybox__caption {
+    max-width: 80rem;
 }
 
 ::selection {
