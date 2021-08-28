@@ -30,7 +30,40 @@ document.addEventListener('DOMContentLoaded', function() {
     // accordions();
     // mediaPlayer();
     // modals();
-   
+
+    let prevTrigger = null;
+
+    barba.hooks.once(data => {
+        console.log('Once global hook', data);
+
+        const navLinks = Array.from(document.querySelectorAll('.page-header__nav a'));
+
+        console.log('nav links', navLinks);
+
+        const path = data.next.url.path;
+
+        console.log('Next path', path)
+
+        const activeLink = navLinks.find(link => link.href.endsWith(path))
+
+        console.log('Active link', activeLink)
+
+        if (activeLink) {
+            navLinks.forEach(link => link.classList.remove('active'));
+            activeLink.classList.add('active');
+            prevTrigger = activeLink;
+        }
+    });
+
+    barba.hooks.before(data => {
+        console.log('Trigger', data.trigger);
+        if (prevTrigger) {
+            prevTrigger.classList.remove('active');
+        }
+        data.trigger.classList.add('active');
+
+        prevTrigger = data.trigger;
+    });
 
     barba.init({
         transitions: [

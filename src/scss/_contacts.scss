@@ -1,6 +1,10 @@
 .contacts__heading {
     font-size: 2.4rem;
     margin-bottom: 1rem;
+
+    @include breakpoint(mobile) {
+        font-size: 2rem;
+    }
 }
 
 .contacts__heading-text {
@@ -12,6 +16,11 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-column-gap: 10rem;
     margin-top: 3rem;
+
+    @include breakpoint(mobile) {
+        grid-gap: 3rem;
+        grid-template-columns: minmax(0, 1fr);
+    }
 }
 .contacts__col {
     display: flex;
@@ -51,6 +60,10 @@
         font-size: 1.4rem;
         color: white;
         background-color: var(--text-color);
+        transition: background-color .2s;
+        &:hover {
+            background-color: var(--primary-color);
+        }
     }
 }
 

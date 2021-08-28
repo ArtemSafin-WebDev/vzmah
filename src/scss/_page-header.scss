@@ -9,7 +9,6 @@
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    
 }
 
 .page-header__logo {
@@ -22,26 +21,84 @@
     width: 17rem;
 }
 
-.page-header__nav {
-    display: flex;
-    align-items: center;
-    
+.page-header__menu {
 }
 
-.page-header__nav-link {
-    padding: 1rem 1.4rem;
-    font-size: 1.3rem;
-    line-height: 1.2;
-    border-right: 1px solid var(--text-color);
-    text-transform: uppercase;
+.page-header__nav {
+    & > ul {
+        display: flex;
+        align-items: center;
+        & > li {
+            border-right: 1px solid var(--text-color);
+            position: relative;
 
-    &:last-child {
-        padding-right: 0;
-        border-right: none;
+            &:hover {
+                & > ul {
+                    opacity: 1;
+                    visibility: inherit;
+                    transition: opacity .3s, visibility .3s;
+                }
+            }
+            & > ul {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                top: 100%;
+                background-color: white;
+                box-shadow: 0 0 1rem rgba(black, 0.2);
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity .3s, visibility 0s linear .3s;
+
+                & > li {
+                    border-bottom: 1px solid var(--text-color);
+                    &:last-child {
+                        border: none;
+                    }
+                    & > a {
+                        font-size: 1.3rem;
+                        width: max-content;
+                        max-width: 18rem;
+                        display: block;
+                        padding: .6rem 1rem;
+
+
+                        &.active {
+                            color: var(--primary-color);
+                        }
+                    }
+                }
+            }
+            &:last-child {
+                border-right: none;
+
+                & > a {
+                    padding-right: 0;
+                }
+            }
+            & > a {
+                padding: 1rem 1.4rem;
+                font-size: 1.3rem;
+                line-height: 1.2;
+
+                text-transform: uppercase;
+                display: block;
+
+                &.active {
+                    color: var(--primary-color);
+                }
+            }
+        }
     }
+}
 
-    .no-touch &:hover,
-    .touch &:active {
-        color: var(--primary-color);
+.page-header__burger {
+    display: none;
+
+    @include breakpoint(mobile) {
+        display: flex;
+        flex-direction: column;
     }
 }

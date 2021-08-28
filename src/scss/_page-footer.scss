@@ -37,10 +37,16 @@
     height: 2.5rem;
     border-radius: 50%;
     background-color: #949494;
+    transition: background-color .2s;
 
     svg {
         width: 1.2rem;
         height: 1.2rem;
         fill: white;
+    }
+
+    .no-touch &:hover,
+    .touch &:active {
+        background-color: var(--text-color);
     }
 }
