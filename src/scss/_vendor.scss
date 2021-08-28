@@ -19,3 +19,10 @@
     opacity: 1;
     transition: opacity 300ms;
 }
+
+
+.fancybox__nav {
+    @include breakpoint(mobile) {
+        display: none;
+    }
+}
