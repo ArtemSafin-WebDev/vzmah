@@ -16,6 +16,7 @@
     grid-template-columns: minmax(0, 1fr);
     grid-template-rows: auto minmax(0, 1fr) auto;
     min-height: 100vh;
+    min-height: -webkit-fill-available;
     grid-template-areas:
         'header'
         'main'
