@@ -25,9 +25,7 @@ html {
 body {
     font-size: 1.6rem;
     line-height: 1.2;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+   
     font-family: var(--montserrat);
     color: var(--text-color);
     overflow-y: scroll;

@@ -3,7 +3,7 @@
 }
 
 .home-once-active {
-    transition: opacity 1s linear 0.3s;
+    transition: all 1s;
 }
 
 .home-once-to {
@@ -12,23 +12,27 @@
 
 .home-leave {
     transform: translateX(0%);
+    opacity: 1;
+   
 }
 
 .home-leave-active {
     transition: all 1s;
+   
   
 }
 
 .home-leave-to {
     transform: translateX(100%);
-    position: absolute;
-    width: 100%;
+    opacity: 0;
    
     
 }
 
 .home-enter {
     transform: translateX(-100%);
+    opacity: 0;
+   
 }
 
 .home-enter-active {
@@ -37,8 +41,7 @@
 }
 
 .home-enter-to {
-    transform: translateX(0%);
-   
-    
-    
+    transform: translateX(0%) !important;
+    opacity: 1 !important;
+
 }
