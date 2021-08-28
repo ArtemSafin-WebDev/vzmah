@@ -25,6 +25,8 @@
 .contacts__col {
     display: flex;
     flex-direction: column;
+
+   
 }
 
 .contacts {
@@ -78,6 +80,11 @@
             font-weight: 400;
             text-align: right;
             padding-right: 2rem;
+        }
+        tr:last-child {
+            th, td {
+                padding-bottom: 0;
+            }
         }
 
         a {

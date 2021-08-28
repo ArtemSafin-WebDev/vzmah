@@ -2,19 +2,18 @@ import polyfills from './polyfills';
 import './lazyload';
 import detectTouch from './detectTouch';
 import setScrollbarWidth from './setScrollbarWidth';
-import validation from './validation';
-import customSelects from './customSelects';
-import masks from './masks';
-
-import anchorLinks from './anchorLinks';
-import mediaPlayer from './mediaPlayer';
-
-import accordions from './accordions';
-import modals from './modals';
 
 import barba from '@barba/core';
 import barbaCss from '@barba/css';
 import fancybox from './fancybox';
+import menu from './menu';
+
+import { gsap } from 'gsap';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+
+gsap.registerPlugin(ScrollToPlugin);
+
+import { clearAllBodyScrollLocks, disableBodyScroll } from 'body-scroll-lock';
 
 barba.use(barbaCss);
 
@@ -23,13 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
     detectTouch();
     setScrollbarWidth();
     fancybox();
-    // validation();
-    // customSelects();
-    // masks();
-    // anchorLinks();
-    // accordions();
-    // mediaPlayer();
-    // modals();
+    menu();
 
     let prevTrigger = null;
 
@@ -63,6 +56,30 @@ document.addEventListener('DOMContentLoaded', function() {
         data.trigger.classList.add('active');
 
         prevTrigger = data.trigger;
+
+        if (typeof window.closeMenu === 'function') {
+            window.closeMenu();
+        }
+
+        disableBodyScroll(document.querySelector('.page-header'), {
+            reserveScrollBarGap: true
+        });
+
+        gsap.to(window, {
+            duration: 1,
+            ease: 'power2.out',
+            onComplete: () => {
+               
+            },
+            scrollTo: {
+                y: 0,
+                autoKill: false
+            }
+        });
+    });
+
+    barba.hooks.after(() => {
+        clearAllBodyScrollLocks();
     });
 
     barba.init({

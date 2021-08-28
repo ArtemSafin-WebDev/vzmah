@@ -4,12 +4,21 @@
     padding-top: 2rem;
     padding-bottom: 5rem;
     // grid-area: header;
+
+    @include breakpoint(mobile) {
+        padding-top: 1.5rem;
+        padding-bottom: 2rem;
+    }
 }
 
 .page-header__row {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
+
+    @include breakpoint(mobile) {
+        align-items: flex-start;
+    }
 }
 
 .page-header__logo {
@@ -20,15 +29,58 @@
     display: block;
     height: auto;
     width: 17rem;
+
+    @include breakpoint(mobile) {
+        width: 10rem;
+    }
 }
 
 .page-header__menu {
+    @include breakpoint(mobile) {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+        display: flex;
+        flex-direction: column;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s, visibility 0s linear 0.3s;
+        z-index: 300;
+        background-color: rgba(black, 0.4);
+
+        .menu-open & {
+            opacity: 1;
+            visibility: inherit;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+    }
 }
 
-.page-header__nav {
+.page-header__menu-inner {
+    @include breakpoint(mobile) {
+        margin-left: auto;
+        flex-grow: 1;
+        width: 20rem;
+        background-color: #fff;
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+        padding-right: var(--content-padding);
+        padding-left: var(--content-padding);
+        transition: transform 0.3s;
+        transform: translateX(100%);
 
+        .menu-open & {
+            transform: translateX(0%);
+            transition: transform 0.4s ease;
+        }
+    }
+}
+.page-header__nav {
     a {
-        transition: color .2s, opacity .2s;
+        transition: color 0.2s, opacity 0.2s;
     }
 
     a:not(.active):hover {
@@ -37,42 +89,63 @@
     & > ul {
         display: flex;
         align-items: center;
-        & > li {
-            border-right: 1px solid var(--text-color);
-            position: relative;
 
-            &:hover {
-                & > ul {
-                    opacity: 1;
-                    visibility: inherit;
-                    transition: opacity .3s, visibility .3s;
+        @include breakpoint(mobile) {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        & > li {
+            @include breakpointMF(small-tablet) {
+                position: relative;
+                border-right: 1px solid var(--text-color);
+                &:hover {
+                    & > ul {
+                        opacity: 1;
+                        visibility: inherit;
+                        transition: opacity 0.3s, visibility 0.3s;
+                    }
                 }
             }
+
             & > ul {
-                display: flex;
-                flex-direction: column;
-                position: absolute;
-                left: 50%;
-                transform: translateX(-50%);
-                top: 100%;
-                background-color: white;
-                box-shadow: 0 0 1rem rgba(black, 0.2);
-                opacity: 0;
-                visibility: hidden;
-                transition: opacity .3s, visibility 0s linear .3s;
+                @include breakpoint(mobile) {
+                    padding-left: 2rem;
+                }
+
+                @include breakpointMF(small-tablet) {
+                    display: flex;
+                    flex-direction: column;
+                    position: absolute;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    top: 100%;
+                    background-color: white;
+                    box-shadow: 0 0 1rem rgba(black, 0.2);
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: opacity 0.3s, visibility 0s linear 0.3s;
+                }
 
                 & > li {
-                    border-bottom: 1px solid var(--text-color);
-                    &:last-child {
-                        border: none;
+                    @include breakpointMF(small-tablet) {
+                        border-bottom: 1px solid var(--text-color);
+                        &:last-child {
+                            border: none;
+                        }
                     }
+
                     & > a {
                         font-size: 1.3rem;
                         width: max-content;
                         max-width: 18rem;
                         display: block;
-                        padding: .6rem 1rem;
+                        padding: 0.6rem 1rem;
 
+                        @include breakpoint(mobile) {
+                            max-width: none;
+                            padding: 0.6rem 0;
+                            font-size: 1.4rem;
+                        }
 
                         &.active {
                             color: var(--primary-color);
@@ -80,11 +153,14 @@
                     }
                 }
             }
-            &:last-child {
-                border-right: none;
 
-                & > a {
-                    padding-right: 0;
+            @include breakpointMF(small-tablet) {
+                &:last-child {
+                    border-right: none;
+
+                    & > a {
+                        padding-right: 0;
+                    }
                 }
             }
             & > a {
@@ -94,6 +170,11 @@
 
                 text-transform: uppercase;
                 display: block;
+
+                @include breakpoint(mobile) {
+                    font-size: 1.4rem;
+                    padding: 0.6rem 0;
+                }
 
                 &.active {
                     color: var(--primary-color);
@@ -109,5 +190,33 @@
     @include breakpoint(mobile) {
         display: flex;
         flex-direction: column;
+        position: relative;
+        z-index: 400;
+        margin-top: 1.3rem;
+
+        & > span {
+            width: 2.4rem;
+            height: 0.2rem;
+            background-color: var(--text-color);
+            margin-bottom: 0.5rem;
+            transition: transform 0.2s, opacity 0.2s;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        .menu-open & {
+            & > span {
+                &:nth-child(1) {
+                    transform: translateY(0.7rem) rotate(45deg);
+                }
+                &:nth-child(2) {
+                    opacity: 0;
+                }
+                &:nth-child(3) {
+                    transform: translateY(-0.7rem) rotate(-45deg);
+                }
+            }
+        }
     }
 }
