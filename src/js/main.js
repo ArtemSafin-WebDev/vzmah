@@ -38,15 +38,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const navLinks = Array.from(document.querySelectorAll('.page-header__nav a'));
 
-        console.log('nav links', navLinks);
+        // console.log('nav links', navLinks);
 
         const path = data.next.url.path;
 
-        console.log('Next path', path)
+        // console.log('Next path', path)
 
-        const activeLink = navLinks.find(link => link.href.endsWith(path))
+        const activeLink = navLinks.find(link => link.href.endsWith(path));
 
-        console.log('Active link', activeLink)
+        // console.log('Active link', activeLink)
 
         if (activeLink) {
             navLinks.forEach(link => link.classList.remove('active'));
@@ -68,7 +68,9 @@ document.addEventListener('DOMContentLoaded', function() {
     barba.init({
         transitions: [
             {
-                name: 'fade',
+                name: 'home',
+                sync: true,
+                once() {},
                 leave() {},
                 enter() {}
             }

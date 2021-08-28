@@ -1,14 +1,44 @@
-.fade-leave-active,
-.fade-enter-active {
-    transition: opacity 450ms ease;
+.home-once {
+    opacity: 0;
 }
 
-.fade-leave,
-.fade-enter-to {
+.home-once-active {
+    transition: opacity 1s linear 0.3s;
+}
+
+.home-once-to {
     opacity: 1;
 }
 
-.fade-enter,
-.fade-leave-to {
-    opacity: 0;
+.home-leave {
+    transform: translateX(0%);
+}
+
+.home-leave-active {
+    transition: all 1s;
+  
+}
+
+.home-leave-to {
+    transform: translateX(100%);
+    position: absolute;
+    width: 100%;
+   
+    
+}
+
+.home-enter {
+    transform: translateX(-100%);
+}
+
+.home-enter-active {
+    transition: all 1s;
+   
+}
+
+.home-enter-to {
+    transform: translateX(0%);
+   
+    
+    
 }
